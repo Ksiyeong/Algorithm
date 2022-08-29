@@ -1,11 +1,11 @@
 import java.util.Scanner;
 
-public class Main1021 {
+public class Main1030 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        String input = sc.next();
+        long i = sc.nextLong();
 
-        System.out.println(input);
+        System.out.println(i);
     }
 }
