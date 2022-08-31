@@ -1,9 +1,10 @@
 import java.util.Scanner;
 
-public class Main1034 {
+public class Main1036 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String i = sc.next();
-        System.out.println(Integer.parseInt(i, 8));
+        char i = sc.next().charAt(0);
+        int x = (int)i;
+        System.out.println(x);
     }
 }
