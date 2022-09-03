@@ -8,7 +8,7 @@ public class Main1046 {
         long k = sc.nextLong();
         long sum = i+j+k;
         System.out.println(sum);
-        System.out.printf("%.1f", 1.0*sum/3);
+        System.out.printf("%.1f", (float)sum/3);
 
     }
 }
