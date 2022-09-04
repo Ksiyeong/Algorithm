@@ -14,7 +14,7 @@ public class Fibonacci {
         int[] fibonacci = getFibonacci(num);
         printNumbers(fibonacci);
     }
-열
+
     static int getUserInput() {
         Scanner sc = new Scanner(System.in);
         return sc.nextInt();
