@@ -1,4 +1,4 @@
-package 조건문;
+package S2조건문;
 
 import java.util.Scanner;
 
