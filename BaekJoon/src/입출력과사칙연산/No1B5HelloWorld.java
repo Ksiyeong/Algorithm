@@ -1,4 +1,4 @@
-package Bronze5;
+package 입출력과사칙연산;
 
 public class No1B5HelloWorld {
     public static void main(String[] args) {
