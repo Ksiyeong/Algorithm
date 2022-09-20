@@ -12,11 +12,8 @@ public class No1B2_1712 {
         if (B >= C) {
             System.out.println(-1);
         } else {
-            long BEP = 0;
-            while (A / (C - B) >= BEP) {
-                BEP++;
-            }
-            System.out.print(BEP);
+            long BEP = A / (C - B);
+            System.out.print(BEP + 1);
         }
     }
 }
