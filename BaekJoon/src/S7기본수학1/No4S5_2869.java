@@ -13,14 +13,6 @@ public class No4S5_2869 {
         int A = Integer.parseInt(st.nextToken());
         int B = Integer.parseInt(st.nextToken());
         int V = Integer.parseInt(st.nextToken());
-
-        int day = (V - B) / (A - B);
-
-
-        if ((V - B) % (A - B) != 0) {
-            day += 1;
-        }
-
-        System.out.println(day);
+        System.out.println((V - B) % (A - B) == 0 ? (V - B) / (A - B) : (V - B) / (A - B) + 1);
     }
 }
