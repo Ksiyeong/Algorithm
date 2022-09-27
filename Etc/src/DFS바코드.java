@@ -10,6 +10,9 @@ public class DFS바코드 {
 
         output = barcode(20);
         System.out.println(output); // "12131231321231213123"
+
+        output = barcode(50);
+        System.out.println(output); // "12131231321231213123"
     }
 
     static public String barcode(int len) {
@@ -36,7 +39,7 @@ public class DFS바코드 {
         }
 
         // Todo : 두개씩 비교 세개씩 비교 n개씩 비교 하는 메서드 만들어서 인접한부분수열 연속될 경우 ternaryAdd를 실행
-        while (comparison(result)) {
+        while (isVaild(result)) {
             do {
                 result = ternaryAdd(result);
             } while (isTrue(result));
@@ -52,21 +55,25 @@ public class DFS바코드 {
 
     }
 
-    static public boolean comparison(int[] result) { // 동일한 부분수열이 존재할 경우 true를 리턴
+    static public boolean isVaild(int[] result) { // 동일한 부분수열이 존재할 경우 true를 리턴
         // 한개씩은 어차피 생성되지 않으므로 바로 두개부터 비교
+        String strResult = "";
+        for (int i : result) {
+            strResult += i;
+        }
 
         int num = result.length / 2; // 비교 시작할 숫자 최대값
 
         for (int i = 2; i <= num; i++) {
-            int[] arrA = new int[i];
-            int[] arrB = new int[i];
 
-            for (int j = result.length - 1; j >= 0; j--) {
-                if (j - i * 2 + 1 >= 0) {
-                    System.arraycopy(result, j - i + 1, arrA, 0, i);
-                    System.arraycopy(result, j - i * 2 + 1, arrB, 0, i);
-                    if (Arrays.toString(arrA).equals(Arrays.toString(arrB))) return true;
-                } else break;
+            for (int j = 0; j < result.length; j++) {
+                if (j + i * 2 <= result.length) {
+                    String strA = strResult.substring(j, j + i);
+                    String strB = strResult.substring(j + i, j + i * 2);
+                    if (strA.equals(strB)) return true;
+                } else {
+                    break;
+                }
             }
         }
         return false;
@@ -76,13 +83,13 @@ public class DFS바코드 {
     static public int[] ternaryAdd(int[] result) {
         result[result.length - 1] += 1;
 
+
         for (int i = result.length - 1; i >= 0; i--) {
             if (result[i] >= 4) {
                 result[i] -= 3;
                 result[i - 1] += 1;
-            }
+            } else break;
         }
-//        if (isTrue(result)) ternaryAdd(result); // 14이상 스택오버플로우
         return result;
     }
 
