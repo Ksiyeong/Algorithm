@@ -35,4 +35,16 @@ public class DP금고털기 {
         }
         return ways[type.length][target];
     }
+
+    public static long oceanNew(int target, int[] type) {
+        // 기존 알고리즘에서 하나씩 쌓는 방법으로 변경
+        long[] ways = new long[target + 1];
+        ways[0] = 1;
+        for (int i = 0; i < type.length; i++) {
+            for (int j = 1; j <= target; j++)
+                if (type[i] <= j)
+                    ways[j] += ways[j - type[i]];
+        }
+        return ways[target];
+    }
 }
