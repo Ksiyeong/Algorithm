@@ -1,8 +1,8 @@
-package S10재귀;
+package 재귀;
 
 import java.io.*;
 
-public class No3B2_25501 {
+public class B2_25501 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));

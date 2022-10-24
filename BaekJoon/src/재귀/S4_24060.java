@@ -1,10 +1,10 @@
-package S10재귀;
+package 재귀;
 
 import java.io.*;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class No4S4_24060 {
+public class S4_24060 {
     static int[] A, tmp;
     static int count = 0;
     static int K;

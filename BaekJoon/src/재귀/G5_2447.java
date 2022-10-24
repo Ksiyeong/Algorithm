@@ -1,4 +1,4 @@
-package S10재귀;
+package 재귀;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -6,7 +6,7 @@ import java.io.OutputStreamWriter;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class No5G5_2447 {
+public class G5_2447 {
     static int[][] starArr;
     static int N;
 

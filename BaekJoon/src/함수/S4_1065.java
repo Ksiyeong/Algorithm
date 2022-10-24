@@ -1,8 +1,8 @@
-package S5함수;
+package 함수;
 
 import java.util.Scanner;
 
-public class No3S4_1065 {
+public class S4_1065 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();

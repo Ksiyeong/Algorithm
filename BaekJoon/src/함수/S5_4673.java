@@ -1,11 +1,11 @@
-package S5함수;
+package 함수;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
-public class No2S5_4673 {
+public class S5_4673 {
     public static void main(String[] args) throws IOException {
         // 1부터 10000까지의 리스트 중에서
         // 1부터 생성자들을 계산하여 remove함수를 이용하여 삭제한다

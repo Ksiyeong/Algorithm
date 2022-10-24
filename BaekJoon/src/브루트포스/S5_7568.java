@@ -1,9 +1,9 @@
-package S11브루트포스;
+package 브루트포스;
 
 import java.io.*;
 import java.util.Arrays;
 
-public class No3S5_7568 {
+public class S5_7568 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));

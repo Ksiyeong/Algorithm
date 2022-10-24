@@ -1,8 +1,8 @@
-package S10재귀;
+package 재귀;
 
 import java.util.Scanner;
 
-public class No1B5_10872 {
+public class B5_10872 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
