@@ -1,8 +1,8 @@
-package S2조건문;
+package 조건문;
 
 import java.util.Scanner;
 
-public class No5B3_2884 {
+public class B3_2884 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 

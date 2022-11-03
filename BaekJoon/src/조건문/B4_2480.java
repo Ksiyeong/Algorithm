@@ -1,10 +1,10 @@
-package S2조건문;
+package 조건문;
 
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.TreeSet;
 
-public class No7B4_2480 {
+public class B4_2480 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
