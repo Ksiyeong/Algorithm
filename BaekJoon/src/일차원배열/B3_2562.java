@@ -1,8 +1,8 @@
-package S4일차원배열;
+package 일차원배열;
 
 import java.util.Scanner;
 
-public class No2B3_2562 {
+public class B3_2562 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 

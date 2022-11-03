@@ -1,9 +1,9 @@
-package S4일차원배열;
+package 일차원배열;
 
 import java.util.HashSet;
 import java.util.Scanner;
 
-public class No3B2_3052 {
+public class B2_3052 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
