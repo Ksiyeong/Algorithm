@@ -1,10 +1,10 @@
-package S9정렬;
+package 정렬;
 
 import java.io.*;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-public class No9S5_1181 {
+public class S5_1181 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));

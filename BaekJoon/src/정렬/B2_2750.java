@@ -1,8 +1,8 @@
-package S9정렬;
+package 정렬;
 
 import java.util.Scanner;
 
-public class No1B2_2750 { // O(n^2)
+public class B2_2750 { // O(n^2)
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 

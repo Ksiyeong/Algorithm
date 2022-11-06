@@ -1,10 +1,10 @@
-package S9정렬;
+package 정렬;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Scanner;
 
-public class No6S5_1427 {
+public class S5_1427 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String[] arr = sc.nextLine().split("");

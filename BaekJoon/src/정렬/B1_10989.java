@@ -1,9 +1,9 @@
-package S9정렬;
+package 정렬;
 
 import java.io.*;
 import java.util.Arrays;
 
-public class No3B1_10989 {
+public class B1_10989 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
