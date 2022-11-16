@@ -1,8 +1,8 @@
-package S1입출력과사칙연산;
+package 입출력과사칙연산;
 
 import java.util.Scanner;
 
-public class No10B5_3003 {
+public class B5_3003 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int a = 1 - sc.nextInt();
