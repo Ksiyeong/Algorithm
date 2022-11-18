@@ -13,8 +13,21 @@ public class CoinChange {
 
     public static int coinChange(int total, int[] coins) {
         // TODO :
+        int[][] arr = new int[coins.length + 1][total + 1];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i][0] = 1;
+        }
 
-        return 0;
+        for (int i = 1; i < arr.length; i++) {
+            for (int j = 1; j < arr[i].length; j++) {
+                arr[i][j] = arr[i - 1][j] +
+                        (coins[i - 1] <= j ? arr[i][j - coins[i - 1]] : 0);
+            }
+        }
+
+
+        return arr[coins.length][total];
     }
+
     // https://withhamit.tistory.com/333
 }
