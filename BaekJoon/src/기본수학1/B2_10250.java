@@ -1,9 +1,9 @@
-package S7기본수학1;
+package 기본수학1;
 
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class No5B2_10250 {
+public class B2_10250 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bf = new BufferedWriter(new OutputStreamWriter(System.out));

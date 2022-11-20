@@ -1,9 +1,9 @@
-package S7기본수학1;
+package 기본수학1;
 
 import java.util.Scanner;
 import java.util.Stack;
 
-public class No8B5_10757 {
+public class B5_10757 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();

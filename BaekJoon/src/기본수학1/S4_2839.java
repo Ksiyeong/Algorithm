@@ -1,8 +1,8 @@
-package S7기본수학1;
+package 기본수학1;
 
 import java.util.Scanner;
 
-public class No7S4_2839 {
+public class S4_2839 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int kg = sc.nextInt();

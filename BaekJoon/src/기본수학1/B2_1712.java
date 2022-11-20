@@ -1,8 +1,8 @@
-package S7기본수학1;
+package 기본수학1;
 
 import java.util.Scanner;
 
-public class No1B2_1712 {
+public class B2_1712 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         long A = sc.nextLong();

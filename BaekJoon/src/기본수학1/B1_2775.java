@@ -1,8 +1,8 @@
-package S7기본수학1;
+package 기본수학1;
 
 import java.io.*;
 
-public class No6B1_2775 {
+public class B1_2775 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bf = new BufferedWriter(new OutputStreamWriter(System.out));
