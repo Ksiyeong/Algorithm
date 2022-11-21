@@ -54,6 +54,7 @@ c b b d
         for (String[] s : arr) {
             System.out.println(Arrays.toString(s).replaceAll("[^a-z^\\s]",""));
         }
+
         return num * (num - 1) - 1;
     }
 }
