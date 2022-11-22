@@ -1,8 +1,8 @@
-package S8기본수학2;
+package 기본수학2;
 
 import java.util.Scanner;
 
-public class No1S5_1978 {
+public class S5_1978 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int result = Integer.parseInt(sc.nextLine());

@@ -1,8 +1,8 @@
-package S8기본수학2;
+package 기본수학2;
 
 import java.io.*;
 
-public class No4S3_1929 {
+public class S3_1929 {
     public static void main(String[] args) throws IOException {
         BufferedReader bw = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bf = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -33,7 +33,7 @@ public class No4S3_1929 {
 }
 
 // 재귀로 푼거
-//public class No4S3_1929 {
+//public class S3_1929 {
 //    public static void main(String[] args) {
 //        //TODO: 에라토스테네스의 체를 사용해보자
 //        Scanner sc = new Scanner(System.in);

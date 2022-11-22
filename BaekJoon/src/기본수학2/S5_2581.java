@@ -1,9 +1,9 @@
-package S8기본수학2;
+package 기본수학2;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class No2S5_2581 {
+public class S5_2581 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 

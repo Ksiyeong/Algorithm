@@ -1,10 +1,10 @@
-package S8기본수학2;
+package 기본수학2;
 
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
-public class No5S3_4948 {
+public class S3_4948 {
     static int[] primeArr;
 
     public static void main(String[] args) {

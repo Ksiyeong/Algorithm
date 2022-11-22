@@ -1,8 +1,8 @@
-package S8기본수학2;
+package 기본수학2;
 
 import java.util.Scanner;
 
-public class No3B1_11653 {
+public class B1_11653 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 

@@ -1,8 +1,8 @@
-package S8기본수학2;
+package 기본수학2;
 
 import java.util.Scanner;
 
-public class No6S2_9020 {
+public class S2_9020 {
 
     static int[] primeArr; // 소수를 담을 배열 생성
 
