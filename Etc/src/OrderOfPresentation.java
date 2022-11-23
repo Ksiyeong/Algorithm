@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.stream.IntStream;
 
 public class OrderOfPresentation {
@@ -15,13 +12,15 @@ public class OrderOfPresentation {
 
     public static int orderOfPresentation(int N, int[] K) {
         // TODO:
-        List<int[]> list = new ArrayList<>();
-        int[] arr = IntStream.range(1, N + 1).toArray();
-        int numberOfCases = Arrays.stream(arr).reduce((x, y) -> x * y).getAsInt();
-
+        boolean[] isUsed = new boolean[N + 1];
         int count = 0;
 
-        return numberOfCases;
+
+        for (int i = 0; i < K.length; i++) {
+        }
+
+
+        return count;
     }
 
 
