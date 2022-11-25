@@ -1,11 +1,11 @@
-package S3반복문;
+package 반복문;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.Scanner;
 
-public class No9B4_2439 {
+public class B4_2439 {
     public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));

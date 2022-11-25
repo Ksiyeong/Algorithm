@@ -1,7 +1,7 @@
-package S3반복문;
+package 반복문;
 import java.util.Scanner;
 
-public class No13B1_1110 {
+public class B1_1110 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();

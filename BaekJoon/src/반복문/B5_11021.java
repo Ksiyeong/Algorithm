@@ -1,9 +1,9 @@
-package S3반복문;
+package 반복문;
 
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class No6B5_11021 {
+public class B5_11021 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
