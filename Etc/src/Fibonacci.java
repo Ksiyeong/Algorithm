@@ -1,52 +1,35 @@
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.util.Scanner;
-
 public class Fibonacci {
-    public static void main(String[] args) throws IOException {
-        BufferedWriter bf = new BufferedWriter(new OutputStreamWriter(System.out));
+    public static void main(String[] args) {
+        int output = fibonacci(0);
+        System.out.println(output); // --> 0
 
-        bf.write("[안내]피보나치 수열 프로그램 시작.\n원하는 수열의 개수를 입력해 주세요 : ");
-        bf.flush();
+        output = fibonacci(6);
+        System.out.println(output); // --> 1
 
-        int num = getUserInput();
-        int[] fibonacci = getFibonacci(num);
-        printNumbers(fibonacci);
+        output = fibonacci(5);
+        System.out.println(output); // --> 5
+
+        output = fibonacci(9);
+        System.out.println(output); // --> 34
     }
 
-    static int getUserInput() {
-        Scanner sc = new Scanner(System.in);
-        return sc.nextInt();
+    public static int fibonacci(int num) {
+        // TODO:
+        if (num == 0) return 0;
+        if (num <= 2) return 1;
+
+        int[] arr = new int[num + 1];
+        arr[1] = arr[2] = 1;
+
+        makefibo(arr, 3);
+
+        return arr[num];
     }
 
-    static int[] getFibonacci(int num) {
-        int[] fibonacci = new int[num];
-
-        if (num >= 1) { // num이 1 이상일 경우
-            fibonacci[0] = 1;
-        }
-
-        if (num >= 2) { // num이 2 이상일 경우
-            fibonacci[1] = 1;
-        }
-
-        for (int i = 2; i < num; i++) { // num이 3 이상일 경우
-            fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];
-        }
-
-        return fibonacci;
+    static int[] makefibo(int[] arr, int now) {
+        arr[now] = arr[now - 1] + arr[now - 2];
+        if (arr.length - 1 == now) return arr;
+        return makefibo(arr, now + 1);
     }
 
-    static void printNumbers(int[] fibonacci) throws IOException {
-        BufferedWriter bf = new BufferedWriter(new OutputStreamWriter(System.out));
-        bf.write("[피보나치 수열 출력]\n");
-
-        for (int num : fibonacci) {
-            bf.write(num + "\n");
-        }
-
-        bf.write("[안내]프로그램을 종료합니다.");
-        bf.flush();
-    }
 }
