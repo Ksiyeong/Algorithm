@@ -12,6 +12,8 @@ public class OrderOfPresentation {
 
     public static int orderOfPresentation(int N, int[] K) {
         // TODO:
+        // 모든 경우의 수를 구하는 것부터 다시해보기
+
         boolean[] isUsed = new boolean[N + 1];
         int count = 0;
 
