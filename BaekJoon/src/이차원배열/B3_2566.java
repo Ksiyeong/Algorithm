@@ -24,14 +24,11 @@ public class B3_2566 {
 
         int maxNum = Arrays.stream(biggest).max().getAsInt();
 
-        bw.write(maxNum + "\n");
-
         for (int i = 0; i < 9; i++) {
-            System.out.println(Arrays.asList(arr[i]).contains(maxNum));
-
-            if (Arrays.stream(arr[i]).anyMatch(num -> num == maxNum)) {
-                bw.write(String.format("%d %d\n", i, 인덱스값 찾아야함));
-                break;
+            for (int j = 0; j < 9; j++) {
+                if (arr[i][j] == maxNum) {
+                    bw.write(maxNum + "\n" + (i + 1) + " " + (j + 1) + "\n");
+                }
             }
         }
         bw.flush();
