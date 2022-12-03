@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class RobotPath {
     public static void main(String[] args) {
         int[][] room = new int[][]{
@@ -14,10 +16,33 @@ public class RobotPath {
     }
 
     public static int robotPath(int[][] room, int[] src, int[] dst) {
-        // TODO :
-        // 현재 위치를 2로 바꾸고 현재 위치와 목표지점을 비교해서 나아갈 방향을 정한다
-        // 나아갈 방향은 0으로만 이동이 가능
-        return 0;
+        room = aux(src, 1, room);
+
+        return room[dst[0]][dst[1]] - 1;
+    }
+
+    public static int[][] aux(int[] src, int step, int[][] room) {
+        int M = room.length;
+        int N = room[0].length;
+        int row = src[0];
+        int col = src[1];
+
+        if (row < 0 || row >= M || col < 0 || col >= N) {
+            return room;
+        }
+
+        if (room[row][col] == 0 || room[row][col] > step) {
+            room[row][col] = step;
+        } else {
+            return room;
+        }
+
+        aux(new int[]{row + 1, col}, step + 1, room);
+        aux(new int[]{row - 1, col}, step + 1, room);
+        aux(new int[]{row, col - 1}, step + 1, room);
+        aux(new int[]{row, col + 1}, step + 1, room);
+
+        return room;
     }
 }
 //    문제
