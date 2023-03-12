@@ -5,14 +5,11 @@ class Solution {
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
                 if (board[i][j] == 1) {
-                    danger(board, i - 1, j - 1);
-                    danger(board, i - 1, j);
-                    danger(board, i - 1, j + 1);
-                    danger(board, i, j - 1);
-                    danger(board, i, j + 1);
-                    danger(board, i + 1, j - 1);
-                    danger(board, i + 1, j);
-                    danger(board, i + 1, j + 1);
+                    for (int k = -1; k <= 1; k++) {
+                        for (int l = -1; l <= 1; l++) {
+                            danger(board, i + k, j + l);
+                        }
+                    }
                 }
             }
         }
