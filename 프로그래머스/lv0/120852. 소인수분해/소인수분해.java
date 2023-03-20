@@ -10,7 +10,6 @@ class Solution {
             if (n % i == 0) {
                 answer.add(i);
                 n /= i;
-                i = 2;
             } else {
                 i++;
             }
