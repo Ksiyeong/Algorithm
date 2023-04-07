@@ -1,9 +1,16 @@
 class Solution {
-    public int solution(int balls, int share) {
-        if (balls == share || share == 0) {
-            return 1;
-        } else {
-            return solution(balls - 1, share - 1) + solution(balls - 1, share);
+public int solution(int balls, int share) {
+        int[][] temp = new int[balls + 1][share + 1];
+
+        for (int i = 0; i <= balls; i++) {
+            for (int j = 0; j <= Math.min(i, share); j++) {
+                if (j == 0 || j == i) {
+                    temp[i][j] = 1;
+                } else {
+                    temp[i][j] = temp[i - 1][j - 1] + temp[i - 1][j];
+                }
+            }
         }
+        return temp[balls][share];
     }
 }
