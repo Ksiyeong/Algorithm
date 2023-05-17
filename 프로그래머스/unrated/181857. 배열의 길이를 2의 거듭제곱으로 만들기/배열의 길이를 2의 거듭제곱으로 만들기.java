@@ -1,9 +1,6 @@
 class Solution {
     public int[] solution(int[] arr) {
-                if (arr.length == 1) {
-            return arr;
-        }
-        int length = 2;
+        int length = 1;
         while (arr.length > length) {
             length *= 2;
         }
