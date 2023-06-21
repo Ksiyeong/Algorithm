@@ -1,37 +1,26 @@
-import java.util.Collections;
-import java.util.PriorityQueue;
-
 class Solution {
     public String solution(String X, String Y) {
-        PriorityQueue<Character> priorityQueue = new PriorityQueue<>(Collections.reverseOrder());
+        StringBuilder answer = new StringBuilder();
+        int[] x = {0,0,0,0,0,0,0,0,0,0};
+        int[] y = {0,0,0,0,0,0,0,0,0,0};
+        for(int i=0; i<X.length();i++){
+           x[X.charAt(i)-48] += 1;
+        }
+        for(int i=0; i<Y.length();i++){
+           y[Y.charAt(i)-48] += 1;
+        }
 
-        while (!X.isEmpty()) {
-            char temp = X.charAt(0);
-
-            int xLength = X.length();
-            int yLength = Y.length();
-
-            X = X.replace("" +temp, "");
-            Y = Y.replace("" +temp, "");
-
-            for (int i = 0; i < Math.min(xLength - X.length(), yLength - Y.length()); i++) {
-                priorityQueue.add(temp);
+        for(int i=9; i >= 0; i--){
+            for(int j=0; j<Math.min(x[i],y[i]); j++){
+                answer.append(i);
             }
         }
-
-        if (priorityQueue.size() == 0) {
-            return "-1";
+        if("".equals(answer.toString())){
+           return "-1";
+        }else if(answer.toString().charAt(0)==48){
+           return "0";
+        }else {
+            return answer.toString();
         }
-        
-        if (priorityQueue.peek() == '0') {
-            return "0";
-        }
-        
-        StringBuilder answer = new StringBuilder(priorityQueue.size());
-        while (!priorityQueue.isEmpty()) {
-            answer.append(priorityQueue.poll());
-        }
-        return answer.toString();
     }
-
 }
