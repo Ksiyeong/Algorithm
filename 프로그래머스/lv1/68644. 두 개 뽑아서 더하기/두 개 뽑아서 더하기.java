@@ -1,25 +1,7 @@
-
-import java.util.TreeSet;
+import java.util.stream.IntStream;
 
 class Solution {
     public int[] solution(int[] numbers) {
-        TreeSet<Integer> set = new TreeSet<>();
-
-        for (int i = 0; i < numbers.length; i++) {
-            for (int j = 0; j < numbers.length; j++) {
-                if (i == j) {
-                    continue;
-                }
-                set.add(numbers[i] + numbers[j]);
-            }
-        }
-
-        int[] answer = new int[set.size()];
-
-        for (int i = 0; i < answer.length; i++) {
-            answer[i] = set.pollFirst();
-        }
-
-        return answer;
+        return IntStream.range(0, numbers.length).flatMap(i -> IntStream.range(0, numbers.length).filter(j -> i != j).map(j -> numbers[i] + numbers[j])).distinct().sorted().toArray();
     }
 }
