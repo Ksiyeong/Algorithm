@@ -12,12 +12,16 @@ class Solution {
         Queue<Integer> cQ = new ArrayDeque<>(List.of(3, 3, 1, 1, 2, 2, 4, 4, 5, 5));
 
         for (int answer : answers) {
-            if (answer == pollAndAdd(aQ)) numbers[0]++;
-            if (answer == pollAndAdd(bQ)) numbers[1]++;
-            if (answer == pollAndAdd(cQ)) numbers[2]++;
+            if (answer == aQ.peek()) numbers[0]++;
+            if (answer == bQ.peek()) numbers[1]++;
+            if (answer == cQ.peek()) numbers[2]++;
+            
+            aQ.add(aQ.poll());
+            bQ.add(bQ.poll());
+            cQ.add(cQ.poll());
         }
 
-        int max = Integer.MIN_VALUE;
+        int max = 0;
         List<Integer> answer = new ArrayList<>();
         for (int i = 0; i < numbers.length; i++) {
             if (numbers[i] > max) {
@@ -30,11 +34,5 @@ class Solution {
         }
 
         return answer.stream().mapToInt(Integer::intValue).toArray();
-    }
-
-    int pollAndAdd(Queue<Integer> queue) {
-        int num = queue.poll();
-        queue.add(num);
-        return num;
     }
 }
