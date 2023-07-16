@@ -6,26 +6,16 @@ class Solution {
         String answer = "";
 
         Map<String, Integer> map = new HashMap<>();
-        for (String str : completion) {
-            if (map.containsKey(str)) {
-                map.put(str, map.get(str) + 1);
-            } else {
-                map.put(str, 1);
-            }
+        for (String name : completion) {
+            map.put(name, map.getOrDefault(name, 0) + 1);
         }
-
-        for (String str : participant) {
-            if (!map.containsKey(str)) {
-                return str;
-            } else {
-                if (map.get(str) == 1) {
-                    map.remove(str);
-                } else {
-                    map.put(str, map.get(str) - 1);
-                }
+        for (String name : participant) {
+            Integer count = map.getOrDefault(name, 0);
+            if (count == 0) {
+                return name;
             }
+            map.put(name, count - 1);
         }
-
         return answer;
     }
 }
