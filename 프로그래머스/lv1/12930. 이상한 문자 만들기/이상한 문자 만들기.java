@@ -1,18 +1,19 @@
 class Solution {
     public String solution(String s) {
-        String[] split = s.split("");
         StringBuilder answer = new StringBuilder();
+        String[] split = s.split("");
 
         int count = 0;
-        for (int i = 0; i < s.length(); i++) {
+        for (String str : split) {
             if (count % 2 == 0) {
-                answer.append(split[i].toUpperCase());
+                answer.append(str.toUpperCase());
             } else {
-                answer.append(split[i].toLowerCase());
+                answer.append(str.toLowerCase());
             }
-            count++;
-            if (split[i].equals(" ")) {
+            if (str.equals(" ")) {
                 count = 0;
+            } else {
+                count = count + 1;
             }
         }
 
