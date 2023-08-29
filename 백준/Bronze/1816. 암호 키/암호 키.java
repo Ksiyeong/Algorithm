@@ -10,11 +10,16 @@ public class Main {
             long num = Long.parseLong(br.readLine());
 
             boolean YES = true;
-            for (int j = 2; j <= 1_000_000; j++) {
-                if (num % j == 0) {
-                    bw.write("NO\n");
-                    YES = false;
-                    break;
+            if (num % 2 == 0) {
+                bw.write("NO\n");
+                YES = false;
+            } else {
+                for (int j = 3; j <= 1_000_000; j += 2) {
+                    if (num % j == 0) {
+                        bw.write("NO\n");
+                        YES = false;
+                        break;
+                    }
                 }
             }
 
