@@ -13,15 +13,11 @@ public class Main {
         int e = Integer.parseInt(readLine[4]);
         int f = Integer.parseInt(readLine[5]);
 
-        for (int x = -999; x <= 999; x++) {
-            for (int y = -999; y <= 999; y++) {
-                if (a * x + b * y == c && d * x + e * y == f) {
-                    bw.write(x + " " + y);
-                    bw.flush();
-                    bw.close();
-                    return;
-                }
-            }
-        }
+        int x = (b * f - e * c) / (b * d - a * e);
+        int y = (a * f - d * c) / (a * e - d * b);
+
+        bw.write(x + " " + y);
+        bw.flush();
+        bw.close();
     }
 }
