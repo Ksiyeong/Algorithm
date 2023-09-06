@@ -1,72 +1,50 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.Arrays;
 
 public class Main {
 
-	public static void solution(long[][] locations) {
-		long[] answer = new long[locations.length];
+    public static int[] solution(int[][] locations) {
+        int[] answer = new int[locations.length]; // 모일 인원별로 값을 저장할 배열
+        for (int i = 0; i < locations.length; i++) {
+            answer[i] = Integer.MAX_VALUE;
+        }
 
-		for (int i = 0; i < locations.length; i++) {
-			answer[i] = -1;
-		}
+        for (int[] xLocation : locations) { // x 좌표 후보
+            for (int[] yLocation : locations) { // y좌표 후보
+                int[] costs = new int[locations.length]; // x,y 좌표와 입력받은 좌표의 거리를 비교한 값을 costs 에 입력
+                for (int i = 0; i < locations.length; i++) {
+                    costs[i] = Math.abs(xLocation[0] - locations[i][0]) + Math.abs(yLocation[1] - locations[i][1]);
+                }
 
-		long[] xLocations = new long[locations.length];
-		long[] yLocations = new long[locations.length];
+                Arrays.sort(costs); // 오름차순으로 정렬
+                int cost = 0;
+                for (int i = 0; i < locations.length; i++) {
+                    cost += costs[i]; // cost에 순차적으로 더 하면서
+                    answer[i] = Math.min(cost, answer[i]); // 해당 인덱스의 값(answer[i])와 현재 좌표의 거리(cost)와 비교하여 작은 값을 저장
+                }
+            }
+        }
+        return answer;
+    }
 
-		for (int i = 0; i < locations.length; i++) {
-			xLocations[i] = locations[i][0];
-			yLocations[i] = locations[i][1];
-		}
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-		// 로직
-		for (long xLocation : xLocations) { // 목표 지점의 x좌표
-			for (long yLocation : yLocations) { // 목표 지점의 y좌표
-				long[] dist = new long[locations.length];
+        int n = Integer.parseInt(br.readLine());
+        int[][] locations = new int[n][2];
 
-				for (int i = 0; i < locations.length; i++) { // 각 체커와 목표 지점의 거리 계산
-					long d = Math.abs(xLocation - locations[i][0]) + Math.abs(yLocation - locations[i][1]);
-					dist[i] = d;
-				}
+        for (int i = 0; i < locations.length; i++) {
+            String[] str = br.readLine().split(" ");
+            locations[i][0] = Integer.parseInt(str[0]);
+            locations[i][1] = Integer.parseInt(str[1]);
+        }
 
-				Arrays.sort(dist); // 오름차순으로 정렬
-
-				long tmp = 0;
-
-				// dist(목표 지점과 각 체커의 거리)를 오름차순 정렬했다.
-				// 0 ~ N까지 거리를 더해가면서 answer에 저장하면, N개의 체커가 목표 지점에 모일 수 있는 최단 거리가 된다.
-				// '로직'이 반복되면서, 목표 지점에 따라 N개의 체커가 모일 수 있는 최단 거리가 계속 갱신된다.
-				for (int i = 0; i < locations.length; i++) {
-					tmp += dist[i];
-
-					if (answer[i] == -1) {
-						answer[i] = tmp;
-					} else {
-						answer[i] = Math.min(tmp, answer[i]);
-					}
-				}
-			}
-		}
-
-		for (long l : answer) {
-			System.out.print(l + " ");
-		}
-	}
-
-	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-		int n = Integer.parseInt(br.readLine());
-		long[][] locations = new long[n][2];
-
-		for (int i = 0; i < locations.length; i++) {
-			String[] str = br.readLine().split(" ");
-
-			locations[i][0] = Long.parseLong(str[0]);
-			locations[i][1] = Long.parseLong(str[1]);
-		}
-
-		solution(locations);
-	}
+        int[] costs = solution(locations);
+        for (int cost : costs) {
+            bw.write(cost + " ");
+        }
+        bw.flush();
+        bw.close();
+    }
 }
