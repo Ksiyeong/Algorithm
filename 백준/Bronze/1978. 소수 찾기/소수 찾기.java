@@ -27,7 +27,7 @@ public class Main {
         if (number < 2 || number % 2 == 0) {
             return false;
         }
-        for (int i = 3; i < Math.sqrt(number) + 1; i += 2) {
+        for (int i = 3; i * i <= number; i += 2) {
             if (number % i == 0) {
                 return false;
             }
