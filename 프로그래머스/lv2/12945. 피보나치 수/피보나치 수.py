@@ -1,7 +1,8 @@
 def solution(n):
-    pibo = [0, 1] + [0] * (n - 1)
-
-    for i in range(2, n + 1):
-        pibo[i] = pibo[i - 2] + pibo[i - 1]
-
-    return pibo[i] % 1234567
+    a, b = 0, 1
+    for _ in range(n // 2):
+        a = a + b
+        b = a + b
+    if n % 2 == 0:
+        return a % 1234567
+    return b % 1234567
