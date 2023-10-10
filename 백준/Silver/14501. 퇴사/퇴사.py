@@ -1,18 +1,19 @@
 from sys import stdin
 input = stdin.readline
 
-def solution(index:int, p:int):
-    global P
-    if index == N:
-        P = max(P, p)
-        return
-    elif index < N:
-        solution(index+TP[index][0],p+TP[index][1]) # 일을 하거나
-        solution(index+1, p) # 하지 않거나
+def solution(schedule:list):
+    n = len(schedule)
+    dp = [0] * (n+1)
+
+    for i in range(n-1, -1, -1):
+        if i + schedule[i][0] > n:
+            dp[i] = dp[i+1]
+        else:    
+            dp[i] += max(dp[i+1], schedule[i][1]+dp[i+schedule[i][0]])
+
+    return dp[0]
 
 N = int(input())
-TP = [list(map(int, input().split())) for _ in range(N)]
-P = 0
+schedule = [list(map(int, input().split())) for _ in range(N)]
 
-solution(0, 0)
-print(P)
+print(solution(schedule))
