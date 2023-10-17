@@ -1,3 +1,6 @@
+from sys import stdin
+input = stdin.readline
+
 def gcd(a: int, b: int):
     if b == 0:
         return a
