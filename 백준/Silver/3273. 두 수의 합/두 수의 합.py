@@ -12,13 +12,14 @@ answer = 0
 i = 0
 j = len(arr) - 1
 while i < j:
-    if arr[i] + arr[j] == x:
+    add = arr[i] + arr[j]
+    if add == x:
         answer += 1
         i += 1
         j -= 1
-    elif arr[i] + arr[j] < x:
+    elif add < x:
         i += 1
-    else: # arr[i] + arr[j] > x
+    else:
         j -= 1
 
 print(answer)
