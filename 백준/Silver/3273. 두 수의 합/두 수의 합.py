@@ -4,12 +4,13 @@ input = stdin.readline
 n = int(input())
 arr = list(map(int, input().split()))
 x = int(input())
+arr = list(filter(lambda a: a < x, arr))
 arr.sort()
 
 answer = 0
 
 i = 0
-j = n - 1
+j = len(arr) - 1
 while i < j:
     if arr[i] + arr[j] == x:
         answer += 1
