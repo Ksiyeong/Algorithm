@@ -8,24 +8,31 @@ public class Main {
             arr[i] = read();
         }
         int x = read();
+
+        System.out.println(solution(arr, x));
+    }
+
+    private static int solution(int[] arr, int x) {
+        int answer = 0;
+
         arr = filterAndSort(arr, x);
 
-        int answer = 0;
         int i = 0;
         int j = arr.length - 1;
         while (i < j) {
-            if (arr[i] + arr[j] == x) {
+            int add = arr[i] + arr[j];
+
+            if (add == x) {
                 answer++;
                 i++;
                 j--;
-            } else if (arr[i] + arr[j] < x) {
+            } else if (add < x) {
                 i++;
             } else {
                 j--;
             }
         }
-
-        System.out.println(answer);
+        return answer;
     }
 
     private static int[] filterAndSort(int[] arr, int x) {
