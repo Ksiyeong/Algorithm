@@ -8,10 +8,7 @@ public class Main {
             arr[i] = read();
         }
         int x = read();
-        arr = Arrays.stream(arr)
-                .filter(a -> a < x)
-                .sorted()
-                .toArray();
+        arr = filterAndSort(arr, x);
 
         int answer = 0;
         int i = 0;
@@ -29,6 +26,31 @@ public class Main {
         }
 
         System.out.println(answer);
+    }
+
+    private static int[] filterAndSort(int[] arr, int x) {
+        int count = 0;
+
+        // x보다 작은 숫자가 몇 개 있는지 세기
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] < x) {
+                count++;
+            }
+        }
+
+        // 새로운 배열을 생성하고 x보다 작은 숫자만 복사
+        int[] newArray = new int[count];
+        int newIndex = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] < x) {
+                newArray[newIndex] = arr[i];
+                newIndex++;
+            }
+        }
+
+        // 새로운 배열을 정렬
+        Arrays.sort(newArray);
+        return newArray;
     }
 
     // 읽기
