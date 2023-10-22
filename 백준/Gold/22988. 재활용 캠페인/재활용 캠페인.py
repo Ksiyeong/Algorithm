@@ -2,7 +2,8 @@ from sys import stdin
 input = stdin.readline
 
 n, x = map(int, input().split())
-arr = sorted(list(filter(lambda a: a < x, map(int, input().split()))))
+arr = list(filter(lambda a: a < x, map(int, input().split())))
+arr.sort()
 
 answer = n - len(arr)
 n -= answer
