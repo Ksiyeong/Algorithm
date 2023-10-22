@@ -5,27 +5,22 @@ n, x = map(int, input().split())
 arr = sorted(list(map(int, input().split())))
 
 answer = 0
-remain = 0
-target = x / 2
 
 i = 0
 j = n - 1
 while i <= j:
     if arr[j] == x:
         answer += 1
+        n -= 1
         j -= 1
-        continue
-
-    if i == j:
-        remain += 1
+    elif i == j:
         break
-
-    if arr[i] + arr[j] >= target:
+    elif (arr[i] + arr[j]) * 2 >= x:
         answer += 1
+        n -= 2
         i += 1
         j -= 1
     else:
-        remain += 1
         i += 1
 
-print(answer + remain//3)
+print(answer + n//3)
