@@ -1,29 +1,27 @@
 from sys import stdin
 input = stdin.readline
 
+def solution(n:int, arr:str):
+    alphbet = [0] * 26
+
+    answer, count, i, j = 0, 0, 0, 0
+    while j < len(arr):
+        if alphbet[ord(arr[j])-97] == 0:
+            count += 1
+        alphbet[ord(arr[j])-97] += 1
+
+        while count > n and i < j:
+            alphbet[ord(arr[i])-97] -= 1
+            if alphbet[ord(arr[i])-97] == 0:
+                count -= 1
+            i += 1
+
+        j += 1
+        answer = max(answer, j-i)
+
+    return answer
+
 n = int(input())
 arr = input().rstrip()
 
-answer = 0
-use = set()
-i = 0
-j = 0
-while j < len(arr):
-    # 포함되어 있다면
-    if arr[j] in use:
-        j += 1
-        
-    # 포함되어 있지 않고
-    else:
-        # 글자를 추가할 수 있다면
-        if len(use) < n:
-            use.add(arr[j])
-            j += 1
-        # 글자를 추가할 수 없다면
-        else:
-            answer = max(answer, j-i)
-            i += 1
-            j = i
-            use.clear()
-
-print(max(answer, j-i))
+print(solution(n, arr))
