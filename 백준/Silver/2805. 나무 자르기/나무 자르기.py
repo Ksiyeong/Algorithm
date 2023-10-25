@@ -2,7 +2,7 @@ from sys import stdin
 input = stdin.readline
 
 def solution(target, trees):
-    s = 0
+    s = 1
     e = max(trees)
     cal = 0
     while s <= e:
@@ -14,12 +14,10 @@ def solution(target, trees):
             if tree > mid:
                 wood += tree - mid
         
-        if wood > target:
+        if wood >= target:
             s = mid + 1
-        elif wood < target:
+        else: # wood < target
             e = mid - 1
-        else: # wood == target
-            return mid
 
     return e
     
