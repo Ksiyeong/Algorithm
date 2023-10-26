@@ -21,19 +21,12 @@ public class Main {
             network.put(b, bOrDefault);
         }
 
-
         solution(1);
-
-        int answer = 0;
-        for (boolean v : virus) {
-            if (v) {
-                answer += 1;
-            }
-        }
-        System.out.println(answer - 1);
+        System.out.println(answer);
     }
 
     static int n, m;
+    static int answer = -1;
     static boolean[] virus;
     static Map<Integer, List<Integer>> network = new HashMap<>();
 
@@ -42,6 +35,7 @@ public class Main {
             return;
         }
         virus[key] = true;
+        answer += 1;
 
         if (network.get(key) != null) {
             for (Integer computer : network.get(key)) {
