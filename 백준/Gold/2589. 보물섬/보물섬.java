@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.Queue;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -27,11 +28,11 @@ public class Main {
                     int[][] dist = new int[Y][X]; // 위치별 거리
 
                     // BFS
-                    Deque<int[]> q = new ArrayDeque<>();
-                    q.addFirst(new int[]{y, x});
+                    Queue<int[]> q = new ArrayDeque<>();
+                    q.add(new int[]{y, x});
                     visited[y][x] = true;
                     while (!q.isEmpty()) {
-                        int[] yx = q.pollFirst();
+                        int[] yx = q.poll();
                         for (int[] direction : new int[][]{{1, 0}, {-1, 0}, {0, -1}, {0, 1}}) {
                             int dy = yx[0] + direction[0];
                             int dx = yx[1] + direction[1];
@@ -40,7 +41,7 @@ public class Main {
                                     visited[dy][dx] = true; // 방문 표시
                                     dist[dy][dx] = dist[yx[0]][yx[1]] + 1; // 거리 표시
                                     answer = Math.max(answer, dist[dy][dx]); // 정답 비교
-                                    q.addLast(new int[]{dy, dx}); // 다음 출발지 표시
+                                    q.add(new int[]{dy, dx}); // 다음 출발지 표시
                                 }
                             }
                         }
