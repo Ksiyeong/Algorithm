@@ -1,24 +1,14 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 public class Main {
     public static void main(String[] args) throws Exception {
         n = read();
         m = read();
         virus = new boolean[n + 1];
+        network = new boolean[n + 1][n + 1];
         for (int i = 0; i < m; i++) {
             int a = read();
             int b = read();
-
-            List<Integer> aOrDefault = network.getOrDefault(a, new ArrayList<>());
-            aOrDefault.add(b);
-            network.put(a, aOrDefault);
-
-            List<Integer> bOrDefault = network.getOrDefault(b, new ArrayList<>());
-            bOrDefault.add(a);
-            network.put(b, bOrDefault);
+            network[a][b] = true;
+            network[b][a] = true;
         }
 
         solution(1);
@@ -28,18 +18,16 @@ public class Main {
     static int n, m;
     static int answer = -1;
     static boolean[] virus;
-    static Map<Integer, List<Integer>> network = new HashMap<>();
+    static boolean[][] network;
 
-    private static void solution(int key) {
-        if (virus[key]) {
-            return;
-        }
-        virus[key] = true;
-        answer += 1;
-
-        if (network.get(key) != null) {
-            for (Integer computer : network.get(key)) {
-                solution(computer);
+    private static void solution(int idx) {
+        if (!virus[idx]) {
+            virus[idx] = true;
+            answer += 1;
+            for (int i = 1; i <= n; i++) {
+                if (network[idx][i]) {
+                    solution(i);
+                }
             }
         }
     }
