@@ -1,44 +1,44 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        n = read();
-        m = read();
-        virus = new boolean[n + 1];
-        network = new List[n + 1];
+        int n = read();
+        int m = read();
+        boolean[] virus = new boolean[n + 1];
+        Map<Integer, List<Integer>> network = new HashMap<>();
         for (int i = 0; i < m; i++) {
             int a = read();
             int b = read();
-            if (network[a] == null) {
-                network[a] = new ArrayList<>();
-            }
-            if (network[b] == null) {
-                network[b] = new ArrayList<>();
-            }
-            network[a].add(b);
-            network[b].add(a);
+
+            List<Integer> aOrDefault = network.getOrDefault(a, new ArrayList<>());
+            aOrDefault.add(b);
+            network.put(a, aOrDefault);
+
+            List<Integer> bOrDefault = network.getOrDefault(b, new ArrayList<>());
+            bOrDefault.add(a);
+            network.put(b, bOrDefault);
         }
 
-        solution(1);
-        System.out.println(answer);
-    }
+        int answer = -1;
+        Deque<Integer> q = new ArrayDeque<>();
+        q.add(1);
+        while (!q.isEmpty()) {
+            Integer computer = q.pollFirst();
+            if (!virus[computer]) {
+                virus[computer] = true;
+                answer += 1;
+            }
 
-    static int n, m;
-    static int answer = -1;
-    static boolean[] virus;
-    static List<Integer>[] network;
-
-    private static void solution(int idx) {
-        if (!virus[idx]) {
-            virus[idx] = true;
-            answer += 1;
-            if (network[idx] != null) {
-                for (Integer i : network[idx]) {
-                    solution(i);
+            if (network.get(computer) != null) {
+                for (Integer nextComputer : network.get(computer)) {
+                    if (!virus[nextComputer]) {
+                        q.addLast(nextComputer);
+                    }
                 }
             }
         }
+
+        System.out.println(answer);
     }
 
     // 읽기
