@@ -1,14 +1,23 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) throws Exception {
         n = read();
         m = read();
         virus = new boolean[n + 1];
-        network = new boolean[n + 1][n + 1];
+        network = new List[n + 1];
         for (int i = 0; i < m; i++) {
             int a = read();
             int b = read();
-            network[a][b] = true;
-            network[b][a] = true;
+            if (network[a] == null) {
+                network[a] = new ArrayList<>();
+            }
+            if (network[b] == null) {
+                network[b] = new ArrayList<>();
+            }
+            network[a].add(b);
+            network[b].add(a);
         }
 
         solution(1);
@@ -18,14 +27,14 @@ public class Main {
     static int n, m;
     static int answer = -1;
     static boolean[] virus;
-    static boolean[][] network;
+    static List<Integer>[] network;
 
     private static void solution(int idx) {
         if (!virus[idx]) {
             virus[idx] = true;
             answer += 1;
-            for (int i = 1; i <= n; i++) {
-                if (network[idx][i]) {
+            if (network[idx] != null) {
+                for (Integer i : network[idx]) {
                     solution(i);
                 }
             }
