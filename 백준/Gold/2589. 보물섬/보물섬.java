@@ -22,7 +22,10 @@ public class Main {
 
         for (int y = 0; y < Y; y++) {
             for (int x = 0; x < X; x++) {
-                answer = Math.max(answer, solution(y, x));
+                int result = solution(y, x);
+                if (answer < result) {
+                    answer = result;
+                }
             }
         }
 
@@ -63,7 +66,9 @@ public class Main {
                     if (0 <= dy && dy < Y && 0 <= dx && dx < X) { // 범위 확인
                         if (map[dy][dx] && !visited[dy][dx]) { // 길 && 방문 여부
                             visited[dy][dx] = true; // 방문 표시
-                            answer = Math.max(answer, poll.distance + 1); // 최장 거리 최신화
+                            if (answer < poll.distance + 1) { // 최장 거리 최신화
+                                answer = poll.distance + 1;
+                            }
                             q.offer(new Distance(dy, dx, poll.distance + 1)); // 다음 출발지 표시
                         }
                     }
