@@ -34,27 +34,37 @@ public class Main {
     static boolean[][] map;
     static int[][] directions = new int[][]{{1, 0}, {-1, 0}, {0, -1}, {0, 1}};
 
+    private static class Distance {
+        int y;
+        int x;
+        int distance;
+
+        private Distance(int y, int x, int distance) {
+            this.y = y;
+            this.x = x;
+            this.distance = distance;
+        }
+    }
+
     private static int solution(int y, int x) {
         int answer = 0;
         if (map[y][x]) {
             boolean[][] visited = new boolean[Y][X]; // 방문 여부
-            int[][] dist = new int[Y][X]; // 위치별 거리
 
             // BFS
-            Queue<int[]> q = new LinkedList<>();
-            q.offer(new int[]{y, x});
+            Queue<Distance> q = new LinkedList<>();
+            q.offer(new Distance(y, x, 0));
             visited[y][x] = true;
             while (!q.isEmpty()) {
-                int[] yx = q.poll();
+                Distance poll = q.poll();
                 for (int[] direction : directions) {
-                    int dy = yx[0] + direction[0];
-                    int dx = yx[1] + direction[1];
+                    int dy = poll.y + direction[0];
+                    int dx = poll.x + direction[1];
                     if (0 <= dy && dy < Y && 0 <= dx && dx < X) { // 범위 확인
                         if (map[dy][dx] && !visited[dy][dx]) { // 길 && 방문 여부
                             visited[dy][dx] = true; // 방문 표시
-                            dist[dy][dx] = dist[yx[0]][yx[1]] + 1; // 거리 표시
-                            answer = Math.max(answer, dist[dy][dx]); // 정답 비교
-                            q.offer(new int[]{dy, dx}); // 다음 출발지 표시
+                            answer = Math.max(answer, poll.distance + 1); // 최장 거리 최신화
+                            q.offer(new Distance(dy, dx, poll.distance + 1)); // 다음 출발지 표시
                         }
                     }
                 }
