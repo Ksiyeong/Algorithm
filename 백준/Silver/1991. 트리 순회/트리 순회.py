@@ -1,7 +1,7 @@
 from sys import stdin
 input = stdin.readline
 
-def solution(node:str):
+def solution(node:chr):
     if node != '.':
         global preorder
         global inorder
