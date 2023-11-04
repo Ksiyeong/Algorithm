@@ -1,13 +1,5 @@
-import sys
-
-sys.setrecursionlimit(10**6)
-input = sys.stdin.readline
-
-def solution(node:int):
-    for next_node in tree[node]:
-        if parents[next_node] == -1:
-            parents[next_node] = node
-            solution(next_node)
+from sys import stdin
+input = stdin.readline
 
 N = int(input())
 tree = [[] for _ in range(N+1)]
@@ -16,9 +8,15 @@ for _ in range(N-1):
     tree[a].append(b)
     tree[b].append(a)
 
-parents = [-1 for _ in range(N+1)]
-parents[1] = 0
+parents = [0] * (N+1)
+parents[1] = 1
 
-solution(1)
-for i in range(2, N+1):
-    print(parents[i])
+q = [1]
+while q:
+    node = q.pop()
+    for next in tree[node]:
+        if not parents[next]:
+            parents[next] = node
+            q.append(next)
+
+print(*parents[2:], sep='\n')
