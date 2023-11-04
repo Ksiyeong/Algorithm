@@ -9,16 +9,12 @@ public class Main {
     public static void main(String[] args) throws Exception {
         int N = read();
         List<Integer>[] tree = new List[N + 1];
+        for (int i = 1; i < N + 1; i++) {
+            tree[i] = new ArrayList<>();
+        }
         for (int i = 0; i < N - 1; i++) {
             int a = read();
             int b = read();
-
-            if (tree[a] == null) {
-                tree[a] = new ArrayList<>();
-            }
-            if (tree[b] == null) {
-                tree[b] = new ArrayList<>();
-            }
 
             tree[a].add(b);
             tree[b].add(a);
