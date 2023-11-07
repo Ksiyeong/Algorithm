@@ -4,7 +4,6 @@ public class Solution {
 
         while (n > 1) {
             if (n % 2 == 1) { // 홀수일 때
-                n -= 1;
                 ans += 1;
             }
             n /= 2;
