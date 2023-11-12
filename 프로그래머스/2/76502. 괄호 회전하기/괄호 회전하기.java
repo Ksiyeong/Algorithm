@@ -1,5 +1,3 @@
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Stack;
 
 class Solution {
@@ -7,28 +5,25 @@ class Solution {
         if (s.length() % 2 == 1) {
             return 0;
         }
-        
+
         int answer = 0;
 
-        List<Character> list = new LinkedList<>();
-        for (char c : s.toCharArray()) {
-            list.add(c);
-        }
-
+        StringBuilder sb = new StringBuilder(s);
         for (int i = 0; i < s.length(); i++) {
-            if (check(list)) {
+            if (check(sb.toString())) {
                 answer += 1;
             }
-            list.add(list.remove(0));
+            sb.append(sb.charAt(0));
+            sb.deleteCharAt(0);
         }
-        
+
         return answer;
     }
 
-    public boolean check(List<Character> s) {
+    private boolean check(String s) {
         Stack<Character> stack = new Stack<>();
-        for (int i = 0; i < s.size(); i++) {
-            char c = s.get(i);
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
 
             if (c == '(' || c == '[' || c == '{') {
                 stack.push(c);
