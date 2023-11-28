@@ -19,7 +19,7 @@ def to_multiset(string:str):
     multiset = [[0]*26 for __ in range(26)]
 
     for i in range(len(string)-1):
-        if string[i].isalpha() and string[i+1].isalpha():
+        if string[i:i+2].isalpha():
             multiset[ord(string[i].upper())-65][ord(string[i+1].upper())-65] += 1
     
     return multiset
