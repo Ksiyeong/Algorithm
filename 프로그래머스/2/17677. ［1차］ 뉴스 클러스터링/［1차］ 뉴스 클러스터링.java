@@ -24,15 +24,11 @@ class Solution {
         for (int i = 0; i < str.length() - 1; i++) {
             char char1 = str.charAt(i);
             char char2 = str.charAt(i + 1);
-            if (isAlphabet(char1) && isAlphabet(char2)) {
+            if (Character.isAlphabetic(char1) && Character.isAlphabetic(char2)) {
                 multiset[char1 - 65][char2 - 65]++;
             }
         }
 
         return multiset;
-    }
-
-    private boolean isAlphabet(char character) {
-        return 'A' <= character && character <= 'Z';
     }
 }
