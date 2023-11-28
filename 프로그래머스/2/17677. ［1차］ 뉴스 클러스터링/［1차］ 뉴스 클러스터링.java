@@ -19,13 +19,13 @@ class Solution {
 
     private int[][] toMultiset(String str) {
         int[][] multiset = new int[26][26];
-        str = str.toUpperCase();
 
-        for (int i = 0; i < str.length() - 1; i++) {
-            char char1 = str.charAt(i);
-            char char2 = str.charAt(i + 1);
-            if (Character.isAlphabetic(char1) && Character.isAlphabetic(char2)) {
-                multiset[char1 - 65][char2 - 65]++;
+        char[] arr = str.toUpperCase().toCharArray();
+        for (int i = 0; i < arr.length - 1; i++) {
+            char c1 = arr[i];
+            char c2 = arr[i + 1];
+            if (Character.isAlphabetic(c1) && Character.isAlphabetic(c2)) {
+                multiset[c1 - 65][c2 - 65]++;
             }
         }
 
