@@ -1,26 +1,34 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 class Solution {
-    public int solution(int[] numbers, int target) {
-        this.numbers = numbers;
-        this.target = target;
+    class Node {
+        int depth;
+        int value;
 
-        dfs(0, 0);
-
-        return answer;
+        public Node(int depth, int value) {
+            this.depth = depth;
+            this.value = value;
+        }
     }
 
-    static int[] numbers;
-    static int target;
-    static int answer = 0;
+    public int solution(int[] numbers, int target) {
+        int answer = 0;
 
-    public void dfs(int depth, int num) {
-        if (depth == numbers.length) {
-            if (num == target) {
-                answer += 1;
+        Queue<Node> q = new LinkedList<>();
+        q.offer(new Node(0, 0));
+        while (!q.isEmpty()) {
+            Node node = q.poll();
+            if (node.depth == numbers.length) {
+                if (node.value == target) {
+                    answer += 1;
+                }
+            } else {
+                q.offer(new Node(node.depth + 1, node.value + numbers[node.depth]));
+                q.offer(new Node(node.depth + 1, node.value - numbers[node.depth]));
             }
-            return;
         }
 
-        dfs(depth + 1, num + numbers[depth]);
-        dfs(depth + 1, num - numbers[depth]);
+        return answer;
     }
 }
