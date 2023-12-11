@@ -15,16 +15,16 @@ class Solution {
         List<Integer> result = new ArrayList<>();
         result.add(0);
         int index = 26;
-        String base = "";
+        StringBuilder base = new StringBuilder();
         for (char c : msg.toCharArray()) {
-            base += c;
-            if (map.containsKey(base)) {
-                result.set(result.size() - 1, map.get(base));
+            base.append(c);
+            if (map.containsKey(base.toString())) {
+                result.set(result.size() - 1, map.get(base.toString()));
             } else {
-                map.put(base, ++index);
+                map.put(base.toString(), ++index);
 
-                base = "" + c;
-                result.add(map.get(base));
+                base = new StringBuilder("" + c);
+                result.add(map.get(base.toString()));
             }
         }
 
