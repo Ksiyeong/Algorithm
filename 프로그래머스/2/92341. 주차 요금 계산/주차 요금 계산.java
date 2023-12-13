@@ -26,11 +26,10 @@ class Solution {
             String[] split = record.split(" ");
             LocalTime time = LocalTime.parse(split[0]);
             int number = Integer.parseInt(split[1]);
-            boolean inOut = split[2].equals("IN"); // IN = true, OUT = false
 
             if (map.containsKey(number)) {
                 ParkingRecord parkingRecord = map.get(number);
-                if (inOut) {
+                if (parkingRecord.inTime == null) {
                     parkingRecord.inTime = time;
                 } else {
                     parkingRecord.calculateStayedTime(time);
