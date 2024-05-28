@@ -1,6 +1,6 @@
 # [level 1] 잡은 물고기 중 가장 큰 물고기의 길이 구하기 - 298515 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/298515) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/298515#qna) 
 
 ### 성능 요약
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 05월 28일 20:02:34
+2024년 05월 28일 20:03:20
 
 ### 문제 설명
 
